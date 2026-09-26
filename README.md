@@ -24,6 +24,10 @@ npm run build    # production build in dist/
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for diagrams of the master/vIBAN concept, the component structure, the data model, the payment routing sequence, the validation logic, the deployment pipeline and an illustrative production target state.
 
+## Testing
+
+See [docs/TEST_PLAN.md](docs/TEST_PLAN.md) for the test plan: requirements traceability, 50+ test cases across validation, routing, reconciliation, UI and deployment, known defects, and the automation roadmap.
+
 ## Deployment
 
 Every push to `main` builds the app and publishes it to GitHub Pages via `.github/workflows/deploy.yml`. One-time setup: in the repo, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
