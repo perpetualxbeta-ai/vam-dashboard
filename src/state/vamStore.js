@@ -28,6 +28,12 @@ export const sumVirtualBalances = (accounts) =>
 export const isReconciled = (state) =>
   sumVirtualBalances(state.virtualAccounts) === state.masterAccount.realBalance;
 
+export const SAMPLE_PAYMENTS = [
+  { payerName: 'Harbourline Retail Pte Ltd', amount: '18250.00', targetVIban: 'VA-1001' },
+  { payerName: 'Meridian Freight Co.', amount: '7420.35', targetVIban: 'VA-1002' },
+  { payerName: 'Crestview Advisory LLP', amount: '32600.00', targetVIban: 'VA-1003' },
+];
+
 let txSeq = 0;
 const nextTxId = () => {
   txSeq += 1;
@@ -111,6 +117,12 @@ export function vamReducer(state, action) {
       }
       return next;
     }
+
+    case 'LOAD_SAMPLE':
+      return SAMPLE_PAYMENTS.reduce(
+        (st, payload) => vamReducer(st, { type: 'SIMULATE_INCOMING_PAYMENT', payload }),
+        state,
+      );
 
     case 'RESET':
       return initialState;

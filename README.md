@@ -2,6 +2,16 @@
 
 A single-page prototype of a corporate banking **Virtual Account Management** dashboard, built with React + Vite + Tailwind CSS. All data lives in local React state (a `useReducer` store) that stands in for a database.
 
+**Live demo:** https://perpetualxbeta-ai.github.io/vam-dashboard/ — click **Load sample payments** to populate it, or post your own payments in the simulator.
+
+![VAM dashboard](docs/dashboard.png)
+
+<details>
+<summary>Mobile view</summary>
+
+<img src="docs/dashboard-mobile.png" width="320" alt="VAM dashboard on mobile">
+</details>
+
 ## Run it
 
 ```bash
@@ -10,12 +20,17 @@ npm run dev      # http://localhost:5173
 npm run build    # production build in dist/
 ```
 
+## Deployment
+
+Every push to `main` builds the app and publishes it to GitHub Pages via `.github/workflows/deploy.yml`. One-time setup: in the repo, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
+
 ## What it does
 
 - **Master account header**: Alpha Property Holdings (`MA-001`, USD) with its real balance, the sum of virtual balances and a live reconciliation indicator.
 - **Virtual accounts table**: `VA-1001` Retail Store A, `VA-1002` Warehouse B, `VA-1003` Office Block C, with balances and a total row.
 - **Transaction simulator**: payer name, amount and target vIBAN; "Simulate Incoming Payment" routes the wire.
 - **Recent transactions**: the ledger, newest first.
+- **Load sample payments / Reset mock data**: populate the dashboard with three example wires, or return every balance to zero.
 
 ## Routing logic (`src/state/vamStore.js`)
 

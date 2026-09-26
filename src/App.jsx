@@ -332,12 +332,20 @@ export default function App() {
             <p className="text-xs text-slate-500">Cash Management / Virtual Accounts</p>
             <h2 className="text-lg font-semibold text-slate-900">Account Overview</h2>
           </div>
+          <div className="flex items-center gap-2">
+          <button
+            onClick={() => dispatch({ type: 'LOAD_SAMPLE' })}
+            className="rounded-md border border-navy-600/30 bg-navy-50 px-3 py-1.5 text-xs font-medium text-navy-700 shadow-sm hover:bg-navy-100"
+          >
+            Load sample payments
+          </button>
           <button
             onClick={() => dispatch({ type: 'RESET' })}
             className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50"
           >
             Reset mock data
           </button>
+          </div>
         </div>
 
         <MasterAccountHeader
